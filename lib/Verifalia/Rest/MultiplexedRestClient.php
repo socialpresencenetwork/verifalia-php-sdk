@@ -10,7 +10,7 @@ namespace Verifalia\Rest {
     class MultiplexedRestClient
     {
         const PACKAGE_VERSION = '2.1';
-        const DEFAULT_API_VERSION = 'v2.1';
+        const DEFAULT_API_VERSION = 'v2.3';
         const USER_AGENT = 'verifalia-rest-client/php/2.1';
 
         // Supported HTTP status codes
