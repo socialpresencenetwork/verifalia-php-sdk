@@ -27,9 +27,10 @@ namespace Verifalia\EmailValidations {
 		 * @param string|array|Validation|ValidationEntry $entries One or more email addresses to validate.
 		 * @param bool|WaitingStrategy $waitingStrategy The strategy which rules out how to wait for the completion of the email validation.
 		 * Can be true to wait for the completion or an instance of WaitingStrategy for advanced scenarios and progress tracking.
+         * @param array $options An array of options to set on the validate request
 		 * @return object An object describing the validation job.
 		 */
-		public function submit($entries, $waitingStrategy = false)
+		public function submit($entries, $waitingStrategy = false, $options = [])
 		{
 			// Builds the input json structure
 
@@ -38,7 +39,7 @@ namespace Verifalia\EmailValidations {
 			if ($entries instanceof Validation) {
 				$validation = $entries;
 			} else {
-				$validation = new ValidationRequest($entries);
+				$validation = new ValidationRequest($entries, $options);
 			}
 
 			$data = array(
